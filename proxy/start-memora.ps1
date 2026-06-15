@@ -22,7 +22,10 @@ function Test-PortListening($port) {
 function Start-Hidden($commandLine, $logPath) {
     $psi = New-Object System.Diagnostics.ProcessStartInfo
     $psi.FileName = $env:ComSpec
-    $psi.Arguments = "/c $commandLine > `"$logPath`" 2>&1"
+    # Wrap the whole pipeline in an outer pair of quotes so cmd.exe doesn't
+    # mangle a command whose first token is a quoted path (cmd strips the
+    # leading+trailing quote otherwise, breaking the exe path).
+    $psi.Arguments = "/c `"$commandLine > `"$logPath`" 2>&1`""
     $psi.WorkingDirectory = $ProxyDir
     $psi.UseShellExecute = $false
     $psi.CreateNoWindow = $true
