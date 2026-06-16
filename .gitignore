@@ -44,5 +44,6 @@ proxy/**/__pycache__/
 proxy/build-venv/
 proxy/build-out/
 proxy/models/
-src-tauri/sidecar-servers/
+src-tauri/sidecar-servers/*
+!src-tauri/sidecar-servers/README.md
 proxy/build-tmp/
