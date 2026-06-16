@@ -1,6 +1,5 @@
 import { UseCompletionReturn } from "@/types";
 import { Input } from "./Input";
-import { SummarizeMeetingButton } from "../SummarizeMeetingButton";
 
 // Patch 14: Screenshot moved out of this component (now rendered in
 // app/index.tsx, third-from-left on the panel). Completion now receives
@@ -14,9 +13,6 @@ export const Completion = ({
   isHidden: boolean;
 }) => {
   return (
-    <>
-      <Input {...completion} isHidden={isHidden} />
-      <SummarizeMeetingButton />
-    </>
+    <Input {...completion} isHidden={isHidden} />
   );
 };

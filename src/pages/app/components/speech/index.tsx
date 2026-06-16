@@ -23,6 +23,7 @@ import { SettingsPanel } from "./SettingsPanel";
 import { PermissionFlow } from "./PermissionFlow";
 import { QuickActions } from "./QuickActions";
 import { Warning } from "./Warning";
+import { SuggestQuestionsButton } from "../SuggestQuestionsButton";
 import { useSystemAudioType } from "@/hooks";
 import { useApp } from "@/contexts";
 import { cn } from "@/lib/utils";
@@ -247,6 +248,14 @@ export const SystemAudio = (props: useSystemAudioType) => {
                       )}
                       Screenshot
                     </Button>
+                  )}
+
+                  {/* Suggest Questions Button */}
+                  {!setupRequired && (
+                    <SuggestQuestionsButton
+                      onAsk={handleQuickActionClick}
+                      disabled={isProcessing || isAIProcessing}
+                    />
                   )}
 
                   {/* New Conversation Button */}
